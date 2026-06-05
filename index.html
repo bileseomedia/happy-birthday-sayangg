@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demian Adlyanata - 17th Chapter</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#C16A62', 
+                        brandLight: '#E8B4B0',
+                        brandDark: '#9A524C',
+                        bgBase: '#FBF9F6', 
+                        bgSection: '#F4EFEB', 
+                        textDark: '#2C2423',
+                        textMuted: '#6E625F'
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #FBF9F6; color: #2C2423; overflow-x: hidden; }
+
+        .glass {
+            background: rgba(251, 249, 246, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(193, 106, 98, 0.1);
+        }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #FBF9F6; }
+        ::-webkit-scrollbar-thumb { background: #E8B4B0; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #C16A62; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .floating { animation: floating 4s ease-in-out infinite; }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        
+        #audio-player.playing .record { animation: spin 4s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .flip-card { perspective: 1000px; height: 220px; }
+        .flip-card-inner {
+            position: relative; width: 100%; height: 100%;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+        .flip-card-front, .flip-card-back {
+            position: absolute; width: 100%; height: 100%;
+            -webkit-backface-visibility: hidden; backface-visibility: hidden;
+            border-radius: 16px; padding: 1.5rem;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+        }
+        .flip-card-front {
+            background: white; border: 1px solid #E8B4B0;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+        }
+        .flip-card-back { background: #C16A62; color: white; transform: rotateY(180deg); }
+
+        .timeline-dot::before {
+            content: ''; position: absolute; left: -5px; top: 24px;
+            width: 12px; height: 12px; border-radius: 50%;
+            background-color: #C16A62; box-shadow: 0 0 0 4px #FBF9F6, 0 0 0 5px #E8B4B0;
+        }
+        @media (min-width: 768px) {
+            .md\:timeline-dot-right::before { left: auto; right: -5px; }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand selection:text-white">
+
+    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-serif text-2xl font-bold text-brand tracking-wider">Demian<span class="text-brandLight">.</span></a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-sm font-medium text-textMuted hover:text-brand transition-colors">Pesanku</a>
+                <a href="#video-section" class="text-sm font-medium text-textMuted hover:text-brand transition-colors">Memori</a>
+                <a href="#gallery" class="text-sm font-medium text-textMuted hover:text-brand transition-colors">Galeri</a>
+            </div>
+            <a href="#wishes" class="px-5 py-2 bg-brand text-white text-sm font-medium rounded-full shadow-lg hover:bg-brandDark transition-all">
+                Wish <i class="fa-solid fa-star ml-1"></i>
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 px-6 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 min-h-[90vh]">
+        <div class="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-10" data-aos="fade-up">
+            <span class="px-4 py-1.5 bg-brandLight/20 text-brand border border-brandLight/50 text-xs font-semibold tracking-[0.2em] uppercase rounded-full mb-6 inline-block">
+                Chapter 17 • June 8, 2026
+            </span>
+            <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-textDark">
+                Selamat Bertambah Usia, <span class="text-brand italic block mt-2">Sayangku.</span>
+            </h1>
+            <p class="text-textMuted text-lg mb-10 max-w-lg font-light leading-relaxed">
+                Hari ini spesial buat kamu ngerayain ulang tahun. Terima kasih sudah tumbuh menjadi seseorang yang luar biasa hebat.
+            </p>
+            <div class="flex gap-4">
+                <a href="#about" class="px-8 py-3.5 bg-textDark text-white font-medium rounded-full hover:bg-brand transition-colors shadow-xl">
+                    Baca Suratku
+                </a>
+            </div>
+        </div>
+        
+        <div class="lg:w-1/2 relative w-full max-w-md mx-auto" data-aos="fade-left">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-brandLight/30 rounded-full blur-3xl"></div>
+            <img src="foto8.jpg" alt="Demian" class="w-full h-[550px] object-cover rounded-[2rem] shadow-2xl relative z-10" style="border-bottom-right-radius: 100px; object-position: center;">
+            
+            <div class="absolute bottom-12 -left-8 lg:-left-12 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl z-20 flex items-center gap-4 floating border border-gray-100">
+                <div class="w-12 h-12 bg-brand/10 text-brand rounded-full flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-cake-candles"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-xs text-textMuted font-medium uppercase tracking-wider">Special Day</p>
+                    <p class="font-serif font-bold text-lg text-textDark">17th Birthday</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-textDark text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.8)_0,transparent_100%)]"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
+            <p class="font-serif italic text-brandLight text-xl mb-2">Sejauh ini, kita sudah bersama selama...</p>
+            
+            <div class="flex justify-center items-center gap-4 md:gap-8 mt-8">
+                <div class="flex flex-col items-center">
+                    <span id="days" class="font-serif text-4xl md:text-6xl font-bold text-white">00</span>
+                    <span class="text-xs md:text-sm tracking-widest text-gray-400 mt-2 uppercase">Hari</span>
+                </div>
+                <span class="text-3xl text-brandLight/50 mb-6">:</span>
+                <div class="flex flex-col items-center">
+                    <span id="hours" class="font-serif text-4xl md:text-6xl font-bold text-white">00</span>
+                    <span class="text-xs md:text-sm tracking-widest text-gray-400 mt-2 uppercase">Jam</span>
+                </div>
+                <span class="text-3xl text-brandLight/50 mb-6">:</span>
+                <div class="flex flex-col items-center">
+                    <span id="minutes" class="font-serif text-4xl md:text-6xl font-bold text-white">00</span>
+                    <span class="text-xs md:text-sm tracking-widest text-gray-400 mt-2 uppercase">Menit</span>
+                </div>
+                <span class="text-3xl text-brandLight/50 mb-6">:</span>
+                <div class="flex flex-col items-center">
+                    <span id="seconds" class="font-serif text-4xl md:text-6xl font-bold text-brand">00</span>
+                    <span class="text-xs md:text-sm tracking-widest text-brandLight mt-2 uppercase">Detik</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-bgSection">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-5/12 relative" data-aos="fade-right">
+                    <img src="foto7.jpg" alt="Memories" class="w-full rounded-2xl shadow-lg object-cover h-[550px] object-top">
+                    <div class="absolute inset-0 border border-brand rounded-2xl translate-x-4 translate-y-4 -z-10"></div>
+                </div>
+                
+                <div class="md:w-7/12" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-8">Babak Baru, Cerita Baru.</h2>
+                    <div class="prose prose-lg text-textMuted font-light leading-loose text-justify md:text-left">
+                        <p class="first-letter:text-7xl first-letter:font-serif first-letter:text-brand first-letter:mr-2 first-letter:float-left first-letter:leading-none">
+                            halooo sayangg, finally 17thn yaa hari iniii 🎉 dari kemaren aku udah ngucapin kamu terus, tapi sekarang baruuu finalnyaaa… happy birthday yaaa cintakuuu 💖 semoga hal baik selalu dateng buat kamu, semogaaa ibadahnya lebih getol lagiii, dan rejekinya melimpah untuk kamu soalnyaa akuu jajannyaa banyakk😝
+                        </p>
+                        <p class="mt-4">
+                            kejar masa depan kamu dan semua impian yang kamu pengen capai, tenang aku disinii ajaa nemenin kamu, asalkan kamu juga berjuang, jangan kebanyakan main-main yaa. tau nggak, udah umur seginii waktunya mikirin kedepannya lohh, jangan kayak kemaren-kemaren yang masih asik mainnn. kalo mau main bolehh, tapi seimbangin sama impian kamu. mulai sekarang carii jati diri kamu untuk masa depan, jadi orang yang capeee buat masa depan, jangan cape cuma karena main-main, okayyyy?
+                        </p>
+                        <p class="mt-4">
+                            aku rasa ucapan aku kali ini lebih serius dan berat ya, tapi gapapa deh, biar kamu sadar dan mikir juga tapii kalo capee istirahat duluu jadiin akuu tempat kamuu bisa jadii diri kamu sendiri yaa. soalnya abis ini kamu udah mulai PKL, pasti bakal sibuk banget, dan setelah lulus tentuin arah kamu, jangan stuck di satu tempat ajaa. soalnya aku kan hobi jajannyaa banyak dan belanja, jadi kamu harus siap sama itu 😏😉
+                            semangatt yaaa sayanggg 💖 segitu dulu deh, sekali lagiii happy sweet seventeen sayangg acuuu ❤️❤️.
+                        </p>
+                        <p class="mt-4 font-medium text-brand text-xl font-serif italic">
+                            "aku bangga sama kamu, hari ini, esok, dan seterusnya."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video-section" class="py-24 bg-bgBase">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div data-aos="fade-up">
+                <span class="text-brand text-sm font-semibold tracking-[0.2em] uppercase">Moving Memories</span>
+                <h2 class="font-serif text-4xl font-bold mt-2 mb-10">Terekam Dalam Waktu</h2>
+            </div>
+            
+            <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white bg-black/5" data-aos="zoom-in" data-aos-delay="200">
+                <video controls autoplay loop muted playsinline class="w-full h-auto max-h-[70vh] object-contain">
+                    <source src="videobucin.mov" type="video/mp4">
+                    Maaf, browser kamu tidak mendukung pemutaran video ini.
+                </video>
+            </div>
+            <p class="text-sm text-textMuted mt-6 italic font-light">"Sekecil apapun momennya, selalu terasa besar kalau sama kamu."</p>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 bg-bgSection">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand text-sm font-semibold tracking-[0.2em] uppercase">Visual Diary</span>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mt-2">Bingkai Kenangan Kita</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:auto-rows-[300px]">
+                <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <img src="foto2.jpg" alt="Gallery 1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <img src="foto4.jpg" alt="Gallery 2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="relative group overflow-hidden rounded-2xl shadow-md" data-aos="fade-up" data-aos-delay="300">
+                   <img src="foto5.jpg" alt="Gallery 3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="secrets" class="py-24 bg-bgBase">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand text-sm font-semibold tracking-[0.2em] uppercase">Secret Notes</span>
+                <h2 class="font-serif text-4xl font-bold mt-2">Pesan Rahasia (Sentuh Kartunya)</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flip-card cursor-pointer" data-aos="flip-left" data-aos-delay="0">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fa-regular fa-face-frown-open text-4xl text-brand mb-4"></i>
+                            <h3 class="font-serif text-xl font-bold">Buka saat kamu merasa lelah</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="font-medium text-sm leading-relaxed">gapapaa kaloo cape istirahat dulu sebentar, sayang. kamu udah kerja keras banget hari ini. aku peluk dari jauh ya! besok kita coba lagi sama-sama. ❤️</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card cursor-pointer" data-aos="flip-left" data-aos-delay="150">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fa-solid fa-mobile-screen text-4xl text-brand mb-4"></i>
+                            <h3 class="font-serif text-xl font-bold">Buka saat kangen aku</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="font-medium text-sm leading-relaxed">cie kangen ya? sama, aku juga! coba dengerin playlist lagu kita sambil liat foto/video di atas, atau mending telepon aku aja sekarang! 📞</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card cursor-pointer" data-aos="flip-left" data-aos-delay="300">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <i class="fa-solid fa-trophy text-4xl text-brand mb-4"></i>
+                            <h3 class="font-serif text-xl font-bold">Buka saat kamu butuh validasi</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="font-medium text-sm leading-relaxed">Inget ini: kamu itu pintar, kamu itu hebat, dan kamuu tuh udah sempurna banget buat aku. jangan pernah dengerin kata orang yang bikin kamu down. you are amazing! ✨</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="wishes" class="py-24 bg-brand text-white relative overflow-hidden">
+        <div class="absolute opacity-10 top-0 left-0 w-full h-full" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
+            <i class="fa-solid fa-cake-candles text-5xl mb-6 floating"></i>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Make a Wish, Demian.</h2>
+            <p class="text-brandLight text-lg mb-10 font-light">
+                Tutup matamu, buat permintaan terbaikmu, lalu klik tombol di bawah ini.
+            </p>
+            <button onclick="triggerConfetti()" class="px-10 py-4 bg-white text-brand font-bold rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 tracking-wide">
+                TIUP LILIN VIRTUAL 🎂
+            </button>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-textDark text-center border-t border-gray-800">
+        <p class="font-serif italic text-gray-400 text-xl mb-4">"You are my today and all of my tomorrows."</p>
+        <div class="w-16 h-[1px] bg-gray-700 mx-auto mb-4"></div>
+        <p class="font-sans text-xs text-gray-500 tracking-widest uppercase">© 2026 • Made with ❤️ for Demian</p>
+    </footer>
+
+    <div id="audio-player" class="fixed bottom-6 right-6 z-50 bg-white/95 backdrop-blur-md p-3 rounded-full shadow-2xl flex items-center gap-4 border border-brandLight/40 hover:bg-bgBase transition-colors cursor-pointer" onclick="togglePlay()">
+        <audio id="bg-music" loop>
+            <source src="menuabersama.mp3" type="audio/mpeg">
+        </audio>
+        <div class="record w-10 h-10 bg-textDark rounded-full flex items-center justify-center relative shadow-inner">
+            <div class="w-3 h-3 bg-brand rounded-full"></div>
+            <div class="absolute inset-1 border border-gray-600 rounded-full opacity-50"></div>
+            <div class="absolute inset-2 border border-gray-500 rounded-full opacity-50"></div>
+        </div>
+        <div class="pr-4 hidden sm:block">
+            <p class="text-xs font-bold text-textDark m-0 leading-tight">Our Song</p>
+            <p class="text-[10px] text-textMuted m-0">Tap to <span id="play-status">Play</span></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        AOS.init({ once: true, offset: 80 });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm');
+                nav.classList.replace('py-4', 'py-2');
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.classList.replace('py-2', 'py-4');
+            }
+        });
+
+        const startDate = new Date('2025-07-19T00:00:00').getTime(); 
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const distance = now - startDate;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateTimer, 1000);
+        updateTimer(); 
+
+        const music = document.getElementById('bg-music');
+        const playerUI = document.getElementById('audio-player');
+        const playStatus = document.getElementById('play-status');
+        let isPlaying = false;
+        music.volume = 0.4;
+
+        function togglePlay() {
+            if (isPlaying) {
+                music.pause();
+                playerUI.classList.remove('playing');
+                playStatus.innerText = 'Play';
+            } else {
+                music.play().catch(e => console.log("Autoplay blocked"));
+                playerUI.classList.add('playing');
+                playStatus.innerText = 'Pause';
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function triggerConfetti() {
+            var duration = 4 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100 };
+
+            function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+
+            var interval = setInterval(function() {
+                var timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) return clearInterval(interval);
+                var particleCount = 50 * (timeLeft / duration);
+                
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+            
+            const btn = document.querySelector('button[onclick="triggerConfetti()"]');
+            btn.innerHTML = 'YEAY! HADIAHMU MENYUSUL ❤️';
+            btn.classList.add('bg-bgBase', 'text-brand');
+        }
+    </script>
+</body>
+</html>
